@@ -1,0 +1,38 @@
+\documentclass[12pt, a4paper]{report}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage[parfill]{parskip}
+\usepackage[linewidth=1pt]{mdframed}
+
+\hypersetup{
+  colorlinks=false,
+  linkcolor=black,
+  filecolor=black,      
+  urlcolor=black,
+  pdftitle={Raccolta dimostrazioni CLF},
+  pdfpagemode=FullScreen,
+}
+
+\mdfsetup{ skipabove=12pt, skipbelow=6pt }
+\renewcommand{\contentsname}{Contenuti}
+
+
+\title{Raccolta di appunti di Data e Web Mining}
+\author{???}
+\date{\today}
+
+\begin{document}
+  \maketitle
+  \tableofcontents
+
+  \input{chapters/features.tex}
+  \input{chapters/supervised.tex}
+  \input{chapters/ensemble.tex}
+  \input{chapters/networks.tex}
+  \input{chapters/clustering.tex}
+  
+  % ... other parts
+\end{document}
