@@ -6,6 +6,9 @@
 \usepackage{hyperref}
 \usepackage[parfill]{parskip}
 \usepackage[linewidth=1pt]{mdframed}
+\usepackage{graphicx}
+
+\graphicspath{ {./images/} }
 
 \hypersetup{
   colorlinks=false,
@@ -28,7 +31,8 @@
   \maketitle
   \tableofcontents
 
-  \input{chapters/features.tex}
+  \input{chapters/introduction.tex}
+  \input{chapters/preprocessing.tex}
   \input{chapters/supervised.tex}
   \input{chapters/ensemble.tex}
   \input{chapters/networks.tex}
