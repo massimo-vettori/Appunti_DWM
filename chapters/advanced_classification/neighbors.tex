@@ -1,0 +1,42 @@
+\section{Classificatori KNN}
+
+  In una visione ad alto livello, l'algoritmo computa la distanza (o similarita') fra ogni istanza di test $(X', y')$ e di train $(X, y) \in D$ per determinare la lista di istanze piu simili ad essa. Una volta calcolata, all'istanza nuova, presa dal set di test verra' assegnata un etichetta in base alla maggioranza delle etichette delle $k$ istanze piu' simili ad essa.
+
+  La ``votazione per maggioranza'' si puo calcolare anche come:
+  $$ y' = \arg\max_{v} \sum_{i=1}^k \mathbb{I}_{v = y_i} $$
+
+  dove $v$ e' un'etichetta di qualche classe, $y_i$ l'etichetta della classe di uno dei $k$ vicini piu' simili a $X'$ e $\mathbb{I}_{v = y_i}$ e' un indicatore che vale 1 se $v = y_i$ e 0 altrimenti.
+
+  Si puo' inoltre estendere la formula aggiungendo un peso $w_i$ a ciascun vicino $i$:
+  $$ y' = \arg\max_{v} \sum_{i=1}^k w_i \mathbb{I}_{v = y_i} $$
+
+  \subsection{Caratteristiche di un classificatore KNN}
+    \begin{enumerate}
+      \item {
+        Questo tipo di classificazione e' parte di una tecnica molto piu' generalizzata detta ``instance-based learning'', la quale non costruisce un modello generale ma memorizza le istanze di training e usa la similarita' fra esse per classificare nuove istanze.
+      }
+
+      \item {
+        La classificazione di una nuova istanza puo' risultare costosa, dato che e' necessario calcolare la similarita' fra essa e tutte le istanze di training.
+      }
+
+      \item {
+        Generalmente i classificatori KNN producono le loro predizioni basandosi su un contesto locale delle istanze, al posto di creare delle regole piu' generalizzate.
+      }
+
+      \item {
+        Essi producono dei ``bordi di decisione'' anche complessi, rendendo questo classificatore piu' flessibile rispetto ad alberi di decisione e classificatori basati su regole di separazione.
+      }
+
+      \item {
+        Esiste una difficolta' non trascurabile nel trattare i casi di ``missing values'' sia in fase di training che in fase di testing.
+      }
+
+      \item {
+        Essi possono gestire bene i casi di attributi che interagiscono fra loro o che sono fra essi correlati. Ad esempio attributi che hanno piu' potere predittivo assieme rispetto a prenderli singolarmente.
+      }
+
+      \item {
+        Se esistono degli attributi irrilevanti con alta frequenza, essi possono distorcere il risultato della classificazione, in quanto cambiano il modo in cui calcola la similarita'.
+      }
+    \end{enumerate}
