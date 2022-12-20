@@ -1,0 +1,18 @@
+\section{Tipi di classificatori}
+
+  Per distinguere diversi tipi di classificatori si può fare riferimento alle diverse caratteristiche dei loro \textbf{output}
+
+  \subsection*{Classificatori Binari e Multi-class}
+    I classificatori binari assegnano ad ogni istanza una fra 2 possibili etichet-te, solitamente $+1$ e $-1$. Inoltre solitamente la classe che risulta di interesse e' quella positiva. Differentemente da quelli binari, quelli Multi-class assegnano ad ogni istanza una fra $k$ possibili etichette, dove $k$ e' il numero di classi.
+
+  \subsection*{Classificatori Deterministici e Probabilistici}
+    Come sottolinea il nome quelli deterministici producono un valore discreto in output per ogni istanza che viene classificata. Mentre quelli robabilistici producono una probabilita' che l'istanza appartenga ad una certa classe. Tale probabilita' e' rappresentata da un valore continuo compreso tra 0 e 1.
+
+  \subsection*{Classificatori Lineari e Non-Lineari}
+    I primi usano un iperpiano per separare linearmente le istanze di classi differenti. Al contrario quelli non-lineari usano una costruzione piu' complessa che gli permette di separare anche non linearmente le classi.
+
+  \subsection*{Classificatori Globali e Locali}
+    I classificatori globali adattano un singolo modello all'intero set di dati. A meno che il modello non sia altamente non lineare, questa strategia unica può non essere efficace quando la relazione tra gli attributi e le etichette di classe efficace quando la relazione tra gli attributi e le etichette della classe varia nello spazio di input. Al contrario quelli locali suddividono lo spazio di ingresso in regioni più piccole e adatta un modello distinto alle istanze di training in ciascuna regione.
+
+  \subsection*{Classificatori Generativi e Discriminativi}
+    Data un istanza $x$ normalmente i classificatori producono un etichetta $y$ per classificarla. Al contrario i classificatori generativi producono un istanza attendibile a pratire dalla sua etichetta. Al contrario i classificatori discriminativi producono un etichetta a partire dalla sua istanza.
