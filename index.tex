@@ -15,12 +15,14 @@
   linkcolor=black,
   filecolor=black,      
   urlcolor=black,
-  pdftitle={Raccolta dimostrazioni CLF},
+  pdftitle={Raccolta di appunti di Data e Web Mining},
   pdfpagemode=FullScreen,
 }
 
 \mdfsetup{ skipabove=12pt, skipbelow=6pt }
 \renewcommand{\contentsname}{Contenuti}
+\newmdtheoremenv{example}{Esempio}{\itshape}{\itshape}
+\newtheorem{remark}{Osservazione}[section]
 
 \title{Raccolta di appunti di Data e Web Mining}
 \author{
@@ -41,6 +43,7 @@
   \input{chapters/introduction.tex}
   \input{chapters/preprocessing.tex}
   \input{chapters/advanced_classification.tex}
+  \input{chapters/shingles.tex}
 
   % ... other chapters
 \end{document}
