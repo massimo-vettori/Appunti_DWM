@@ -1,0 +1,25 @@
+\section{Bagging vs Boosting}
+    \subsection{Bagging}
+        Il BAGGing (Boostrap AGGregation) è un Ensemble Method utilizzato per ridurre la varianza all'interno di un dataset con molto rumore.
+        \\[1\baselineskip]
+        Nel Bagging, un campione casuale di dati di training viene selezionato con il metodo della sostituzione, ovvero che all'interno di quel campione casuale è possibile selezionare lo stesso dato più di una volta (la probabilità è uniforme).
+        Dopo aver generato diversi campioni, questi Weak Learners vengono allenati parallelamente e indipendentemente l'uno dall'altro per poi utilizzare, a seconda del problema, una media o il voto di maggioranza come stima.
+
+    \subsection{Boosting}
+        Il Boosting è un Ensemble Method utilizzato per ridurre al minimo gli errori durante la fase di training.
+        \\[1\baselineskip]
+        Nel Boosting, un campione casuale di dati di training viene selezionato con ripetizione (come nel bagging) e utilizzato per addestrare in sequenza ogni modello: ogni modello cerca di compensare i punti deboli del proprio predecessore.
+        I pesi dei dati vengono ripesati: i dati classificati in modo errato ottengono un peso maggiore mentre quelli classificati correttamente perdono peso. Pertanto, i Weak Learners successivi si concentreranno maggiormente sui dati che i precedenti hanno classificato erroneamente.
+        \\[1\baselineskip]
+        La ricalibrazione del peso di ogni dato indica una ricalibrazione della probabilità con la quale quel dato può essere pescato come campione dal modello successivo: più è alta e più probabilità avrà di essere scelto (solo all'inizio i pesi sono tutti uniformi),
+
+    \subsection{Differenze}
+        Le principali differenze tra questi due metodi sono:
+        
+        \begin{itemize}
+            \item Il modo in cui vengono allenati: nel bagging, i Weak Learners vengono addestrati in parallelo mentre nel boosting imparano in sequenza;
+            \item Il campionamento dei dati per la fase di addestramento: il bagging prende i dati con la stessa probabilità mentre il boosting li prende in base al peso dato dai modelli precedenti;
+            \item Gli scenari in cui vengono utilizzati: il Bagging funziona bene per Weak Learners con alta varianza e bassa distorsione, mentre il Boosting quando si osserva una bassa varianza e un'elevata distorsione.
+        \end{itemize}
+
+    \clearpage

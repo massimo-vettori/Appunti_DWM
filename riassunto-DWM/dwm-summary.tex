@@ -1,0 +1,65 @@
+\documentclass{book}
+
+% Choose a conveniently small page size
+\usepackage[paperheight = 16cm, paperwidth = 12cm, textwidth = 10cm]{ geometry }
+\usepackage[english, main = italian]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage[parfill]{parskip}
+\usepackage[linewidth=1pt]{mdframed}
+\usepackage{graphicx}
+
+\graphicspath{ {./images/} }
+
+\newmdtheoremenv{example}{Esempio}{\itshape}{\itshape}
+\newtheorem{remark}{Osservazione}[section]
+
+\title{Riassunto di Data and Web Mining}
+\author{Un gruppo di buon samaritani}
+\date{Dicembre 2022}
+\begin{document}
+
+\frontmatter
+\maketitle
+$$ \textbf{Prefazione} $$
+Ci scusiamo per gli eventuali errori di battitura presenti nel documento.
+\\
+Gli argomenti presenti in questo documento si rifanno a quelli spiegati nel corso dell'anno accademico 2022/2023.
+\\
+Qui dentro sono riassunti i concetti che ho ritenuto più importanti da sapere.
+\\
+Potremmo aver saltato qualche piccola parte di alcuni argomenti causa pigrizia, confusione o altre ragioni di cause sconosciute.
+\\
+Non ci assumiamo nessuna responsabilità riguardo il voto che prenderete se studiate solo da questo riassunto.
+\\
+A dirla tutta, non siamo delle persone responsabili in primo luogo quindi il problema non dovremmo manco porcelo.
+\\
+Per chi stesse studiando durante le feste natalizie: tanti auguri.
+\\
+Chi invece no: tanti auguri lo stesso.
+\\
+Potremmo aver sviluppato una forte dipendenza da caffeina: se vedete il documento non concluso, una probabile causa potrebbe essere arresto cardiaco.
+\\
+La seconda causa è che abbiamo trovato degli appunti migliori di questi: nel caso fosse, faremo un omaggio alla madonna per la persona che li ha scritti.
+\\
+Se avete letto fino a questo punto, ci scusiamo per l'inutile perdita di tempo.
+$$ \textbf{BUONA LETTURA}_{mandate aiuto pls!} $$
+
+
+\mainmatter
+\tableofcontents
+
+    \input{chapters/introduzione.tex}
+    \input{chapters/supervised-learning.tex}
+    \input{chapters/ensemble-methods.tex}
+    \input{chapters/feature-engineering.tex}
+    \input{chapters/text-processing.tex}
+    \input{chapters/dimensionality-reduction.tex}
+    \input{chapters/clustering.tex}
+    \input{chapters/association-rules.tex}
+    \input{chapters/recommender-systems.tex}
+    \input{chapters/shingling-and-lsh.tex}
+
+\end{document}

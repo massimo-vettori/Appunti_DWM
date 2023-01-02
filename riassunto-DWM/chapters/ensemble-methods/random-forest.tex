@@ -1,0 +1,53 @@
+\section{Random Forest}
+    $\textbf{Random Forest}$ (o $\textbf{Random Decision Forest}$) è un Ensemble Method per la classificazione, la regressione e altre attività (es: Stima di Similarità o Feature Selection).
+    Opera costruendo una moltitudine di alberi decisionali durante la fase di training, seguendo l'idea degli algoritmi di Bagging.
+    L'output della foresta dipende dal tipo di attività: se di classificazione sarà la classe selezionata dalla maggioranza degli alberi, se di regressione sarà la predizione media degli alberi.
+    \\[1\baselineskip]
+    Le Random Forest correggono l'abitudine degli albero decisionali di adattarsi in modo eccessivo ($\textbf{overfitting}$) al loro set di allenamento.
+    \\[1\baselineskip]
+    In particolare, gli alberi che crescono molto in profondità tendono ad apprendere schemi molto irregolari: fanno overfitting sul loro train set, cioè hanno una bassa distorsione ma una varianza molto alta.
+    Le Random Forest sono un modo per utilizzare le predizioni di più alberi decisionali, addestrati su parti diverse dello stesso train set, con l'obiettivo di ridurre la varianza.
+    \\
+    Ciò avviene a scapito di un piccolo aumento della distorsione e una certa perdita di interpretabilità, ma, generalmente, aumenta notevolemte le prestazioni del modello finale.
+
+    \subsection{R.F. come Stimatore di Similarità}
+        In definitiva, $\underline{\textrm{un modello raggruppa istanze simili}}$ e fornisce la stessa previsione per esse.
+        \\[1\baselineskip]
+        Un albero decisionale utilizza i predicati dei nodi per identificare un sottoinsieme di istanze per le quali viene fornita la stessa previsione: questo raggruppamento per somiglianza si basa sull'etichetta target piuttosto che sulle features.
+        \\
+        In un certo senso, questo supera il problema di pesare correttamente le caratteristiche per calcolare la somiglianza: quali caratteristiche sono rilevanti e come determinare se due istanze sono simili è implicitamente determinato dall'algoritmo di allenamento.
+        \\[1\baselineskip]
+        Possiamo costruire una misura di similarità sulla base della seguente ipotesi: due istanze sono simili se attraversano la foresta casuale lungo percorsi simili, ovvero se cadono sulle stesse foglie.
+        
+        Misuriamo quindi la somiglianza tra due istanze ($o_{i}$ e $o_{j}$) come il rapporto tra il numero di foglie comuni raggiunte durante l'attraversamento della foresta e il numero di alberi ($n$) in cui i due dati appaiono nella stessa foglia:
+
+            $$ RF_{sim}(o_{i}, o_{j}) = \frac{1}{n} \cdot \sum_{k=0}^{n}{\left[ \textrm{leaf}_{k}(o_{i}) == \textrm{leaf}_{k}(o_{j}) \right]} $$
+
+        In linea di principio, questo potrebbe essere applicato a qualsiasi foresta di alberi decisionali, inclusi il bagging e il boosting.
+        \\
+        Random Forest è preferibile per i seguenti motivi:
+        \begin{itemize}
+            \item La R.F. è migliore del Boosting poiché la R.F. dà lo stesso peso agli alberi;
+            \item La R.F. è migliore di Bagging in quanto i suoi alberi sono più diversi.
+        \end{itemize}
+
+    \subsection{Identificare gli Outliers con le R.F.}
+        Con un ragionamento simile al concetto di similarità, possiamo usare le Random Forest per identificare gli outliers nel dataset.
+        \\
+        Definiamo l'$\textbf{Outlying Score}$ come l'inverso della somma dei quadrati delle similarità tra il nodo $o_{i}$ preso in questione e ogni altro nodo nel dataset:
+
+            $$ out(o_{i}) = \left[ \sum_{o_{j} \in \cal{D}}{RF_{sim}(o_{i}, o_{j})^{2}} \right]^{-1}; \qquad \forall{o_{j} \neq o_{i}} $$
+    
+    \subsection{Feature Importance \& Feature Selection}
+        $\textbf{Importanza:}$ ogni albero della foresta può calcolare l'importanza di una feature in base alla capacità della feature stessa di aumentare la purezza delle foglie.
+        \\
+        Maggiore è l'incremento della purezza delle foglie, maggiore è l'importanza della caratteristica. Questo viene fatto per ogni albero, quindi viene calcolata la media tra tutti gli alberi e, infine, normalizzata nell'intervallo $[0,1]$.
+        \\[2\baselineskip]
+        $\textbf{Selezione:}$ Una volta individuata l'importanza di ogni feature, esegue la selezione delle features utilizzando una procedura chiamata $\textbf{R.F.E}$ (Recursive Feature Elimination).
+        È comune combinare questa tecnica con la Cross-Validation.
+        \\[1\baselineskip]
+        L'idea è quella di rimuovere la feature meno rilevate dopo il fitting del modello, calcolare le performance usando la [k-fold] Cross-Validatio.
+        Questa sequenza di operazioni vengono iterate fino all'esaurimento di tutte le features.
+        Il set di features con il più alto punteggio di performance calcolato durante tutto il procedimento è il set di features ritenuto migliore dalla R.F.
+        
+    \clearpage

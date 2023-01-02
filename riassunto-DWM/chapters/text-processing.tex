@@ -1,0 +1,27 @@
+\chapter{Text Processing}
+    Di seguito alcuni metodi per processare dei testi:
+
+    \begin{itemize}
+        \item $\textbf{TF-IDF}$ (Term Frequency - Inverse Document Frequency): è un algoritmo che utilizza la frequenza delle parole per determinare quanto tali parole siano rilevanti per un dato documento.
+        \\
+        È un approccio relativamente semplice ma intuitivo per dare peso alle parole.
+        \\[1\baselineskip]
+        Per riassumere l'intuizione chiave, l'importanza di un termine è inversamente correlata alla sua frequenza nei documenti.
+        \\[1\baselineskip]
+        TF ci fornisce informazioni sulla frequenza con cui un termine $t$ appare in un documento $d$ e IDF ci fornisce informazioni sulla relativa rarità di un termine $t$ nella raccolta dei documenti $D$.
+        Moltiplicando questi valori insieme possiamo ottenere il nostro valore TF-IDF finale.
+
+            $$ tf\ idf(t, d, D) = tf(t, d) \cdot idf(t, D) $$
+
+        dove $idf(t, D)$ è definito come:
+            $$ idf(t, D) = \ln \left( \frac{N_{\textrm{docs}}}{df(t)} \right)$$
+        
+        in cui $N_{\textrm{docs}}$ rappresenta il numero di documenti nella collezione $D$ mentre $df(t)$ è il numero di documenti contenenti il termine $t$;
+        \\[0.5\baselineskip]
+
+        \item $\textbf{Stemming}:$ viene usato per rimuovere il prefisso/suffisso (es: "being" $\longrightarrow$ "be", "was" $\longrightarrow$ "was");
+            \\[0.5\baselineskip]
+        \item $\textbf{Lemming}:$ si riferisce all'identificazione dell'origine della parola (es: "being" $\longrightarrow$ "be", "was" $\longrightarrow$ "be").
+    \end{itemize}
+
+    \clearpage
